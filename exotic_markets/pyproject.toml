@@ -1,0 +1,15 @@
+[tool.poetry]
+name = 'exotic_markets'
+version = '0.1.0'
+description = ""
+authors = ["Jean Marchand <jean@exotic.markets>"]
+packages = [
+    { include = 'exotic_markets' },
+]
+
+[tool.poetry.dependencies]
+python = '^3.6'
+
+[build-system]
+requires = ['poetry-core~=1.0']
+build-backend = 'poetry.core.masonry.api'

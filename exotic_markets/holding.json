@@ -1,0 +1,1927 @@
+{
+  "version": "0.1.0",
+  "name": "holding",
+  "instructions": [
+    {
+      "name": "initUnderlying",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "adminData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "underlying",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "baseMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "quoteMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "baseOracle",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "quoteOracle",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "updateUnderlying",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "underlying",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "baseMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "quoteMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "newBaseOracle",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "newQuoteOracle",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initProduct",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "adminData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "product",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "depositBuyMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "depositSellMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "InitProductArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "fundManagementAcc",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "adminData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "managementAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initHolding",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "adminData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "holdingData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "productData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "depositBuyMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "depositSellMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "depositBuyTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "depositSellTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "secondaryBuyMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "secondarySellMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authorityAi",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "InitHoldingArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "updateHolding",
+      "accounts": [
+        {
+          "name": "admin",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "adminData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "holdingData",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "UpdateHoldingArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "placeOrder",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "holdingData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "depositTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "sourceTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "positionData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "PlaceOrderArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "startProduct",
+      "accounts": [
+        {
+          "name": "holdingData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "productData",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "placeBid",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "adminData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "holdingData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "bidData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "bidTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "managementAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "sourceTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "sourceTokenMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "authorityAi",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "changeBid",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "holdingData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "bidData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "bidTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "sourceTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "ChangeBidArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "closeBid",
+      "accounts": [
+        {
+          "name": "managementAcc",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "holdingData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "bidData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "bidTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "sourceTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authorityAi",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "acceptBid",
+      "accounts": [
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "holdingData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "bidData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "bidTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "depositTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "positionData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authorityAi",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "expireProduct",
+      "accounts": [
+        {
+          "name": "holdingData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "productData",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "expireProductOverride",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "adminData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "holdingData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "productData",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "ExpireProductOverrideArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "withdrawSingleDirection",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "admin",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "adminData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "holdingData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "positionData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "productData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "depositTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authorityAi",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "direction",
+          "type": {
+            "defined": "OrderDirection"
+          }
+        }
+      ]
+    },
+    {
+      "name": "withdraw",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "holdingData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "positionData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "productData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "depositBuyTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "depositSellTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userBuyTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userSellTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authorityAi",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "exoticStakePool",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "exoticStakeFeeState",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "memberData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "performanceFeeRecipientBuyTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "performanceFeeRecipientSellTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "withdrawUnstartProduct",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "holdingData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "positionData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "productData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "depositTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authorityAi",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "closeHolding",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "holdingData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "depositBuyTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "depositSellTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "remainingBuyTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "remainingSellTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authorityAi",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "convertPosition",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "holdingData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "positionData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userSecondaryTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "secondaryMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authorityAi",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "ConvertPositionArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "convertSecondary",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "holdingData",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "positionData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userSecondaryTokenAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "secondaryMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "exoticStakePool",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "authorityAi",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "ConvertSecondaryArgs"
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Bid",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bidder",
+            "type": "publicKey"
+          },
+          {
+            "name": "holding",
+            "type": "publicKey"
+          },
+          {
+            "name": "userTokenAccPubkey",
+            "type": "publicKey"
+          },
+          {
+            "name": "bidAccBump",
+            "type": "u8"
+          },
+          {
+            "name": "bidTokenAccBump",
+            "type": "u8"
+          },
+          {
+            "name": "bidAmount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Holding",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "publicKey"
+          },
+          {
+            "name": "endCollection",
+            "type": "u64"
+          },
+          {
+            "name": "startAuction",
+            "type": "u64"
+          },
+          {
+            "name": "endAuction",
+            "type": "u64"
+          },
+          {
+            "name": "depositBuyMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "depositSellMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "authorityBump",
+            "type": "u8"
+          },
+          {
+            "name": "depositBuyBump",
+            "type": "u8"
+          },
+          {
+            "name": "depositSellBump",
+            "type": "u8"
+          },
+          {
+            "name": "secondaryBuyMintBump",
+            "type": "u8"
+          },
+          {
+            "name": "secondarySellMintBump",
+            "type": "u8"
+          },
+          {
+            "name": "possibleOrderDirection",
+            "type": {
+              "defined": "OrderPossibleDirection"
+            }
+          },
+          {
+            "name": "highestBidPubkey",
+            "type": "publicKey"
+          },
+          {
+            "name": "highestBidAmount",
+            "type": "u64"
+          },
+          {
+            "name": "totalBuyAmount",
+            "type": "u64"
+          },
+          {
+            "name": "totalSellAmount",
+            "type": "u64"
+          },
+          {
+            "name": "remainingOrdersAmount",
+            "type": "u64"
+          },
+          {
+            "name": "remainingBidCount",
+            "type": "u64"
+          },
+          {
+            "name": "product",
+            "type": "publicKey"
+          },
+          {
+            "name": "productExpiry",
+            "type": "u64"
+          },
+          {
+            "name": "initialSpotLevel",
+            "type": {
+              "option": {
+                "vec": "u64"
+              }
+            }
+          },
+          {
+            "name": "expirySpotLevel",
+            "type": {
+              "option": {
+                "vec": "u64"
+              }
+            }
+          },
+          {
+            "name": "strike",
+            "type": {
+              "option": {
+                "vec": "u64"
+              }
+            }
+          },
+          {
+            "name": "bidderDepositAmount",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "depositBuyPayoff",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "depositSellPayoff",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "maxTotalDeposit",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "maxDepositPerUser",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "minDepositPerUser",
+            "type": "u64"
+          },
+          {
+            "name": "estYield",
+            "type": "u64"
+          },
+          {
+            "name": "minYield",
+            "type": "u64"
+          },
+          {
+            "name": "minBidIncrement",
+            "type": "u64"
+          },
+          {
+            "name": "initDay",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "riskLevel",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Position",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "type": "publicKey"
+          },
+          {
+            "name": "holding",
+            "type": "publicKey"
+          },
+          {
+            "name": "buyAmount",
+            "type": "u64"
+          },
+          {
+            "name": "sellAmount",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Product",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "publicKey"
+          },
+          {
+            "name": "commonData",
+            "type": {
+              "defined": "ProductCommon"
+            }
+          },
+          {
+            "name": "specificData",
+            "type": {
+              "defined": "SpecificProduct"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Underlying",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "baseMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "quoteMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "baseOracle",
+            "type": "publicKey"
+          },
+          {
+            "name": "quoteOracle",
+            "type": "publicKey"
+          },
+          {
+            "name": "owner",
+            "type": "publicKey"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "UpdateStateArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "newAdmin",
+            "type": "publicKey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InitProductArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "maturity",
+            "type": "u32"
+          },
+          {
+            "name": "underlyingCount",
+            "type": "u8"
+          },
+          {
+            "name": "specificData",
+            "type": {
+              "defined": "SpecificProduct"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "FundManagementAccArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "managementAccBump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InitHoldingArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "endCollection",
+            "type": "u64"
+          },
+          {
+            "name": "startAuction",
+            "type": "u64"
+          },
+          {
+            "name": "endAuction",
+            "type": "u64"
+          },
+          {
+            "name": "authorityAiBump",
+            "type": "u8"
+          },
+          {
+            "name": "possibleOrderDirection",
+            "type": {
+              "defined": "OrderPossibleDirection"
+            }
+          },
+          {
+            "name": "maxTotalDeposit",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "maxDepositPerUser",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "minDepositPerUser",
+            "type": "u64"
+          },
+          {
+            "name": "estYield",
+            "type": "u64"
+          },
+          {
+            "name": "minYield",
+            "type": "u64"
+          },
+          {
+            "name": "minBidIncrement",
+            "type": "u64"
+          },
+          {
+            "name": "riskLevel",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateHoldingArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "newEstYield",
+            "type": "u64"
+          },
+          {
+            "name": "newMinYield",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PlaceOrderArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "direction",
+            "type": {
+              "defined": "OrderDirection"
+            }
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ChangeBidArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ExpireProductOverrideArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "spots",
+            "type": {
+              "vec": "u64"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "ConvertPositionArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "direction",
+            "type": {
+              "defined": "OrderDirection"
+            }
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ConvertSecondaryArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "direction",
+            "type": {
+              "defined": "OrderDirection"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProductCommon",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "underlying",
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "maturity",
+            "type": "u32"
+          },
+          {
+            "name": "depositBuyMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "depositSellMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "quoteUnderlying",
+            "type": "publicKey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BuyBelowMarket",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "strike",
+            "type": "u64"
+          },
+          {
+            "name": "knockOut",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SellAboveMarket",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "strike",
+            "type": "u64"
+          },
+          {
+            "name": "knockOut",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PutWorstOf",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "strike",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PutWorstOfKnockIn",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "strike",
+            "type": "u64"
+          },
+          {
+            "name": "knockIn",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PutSelling",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "strike",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CallOverride",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "strike",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OrderDirection",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Buy"
+          },
+          {
+            "name": "Sell"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OrderPossibleDirection",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Buy"
+          },
+          {
+            "name": "Sell"
+          },
+          {
+            "name": "BuyAndSell"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SpecificProduct",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "PutWorstOfProduct",
+            "fields": [
+              {
+                "name": "put_worst_of",
+                "type": {
+                  "defined": "PutWorstOf"
+                }
+              }
+            ]
+          },
+          {
+            "name": "BuyBelowMarketProduct",
+            "fields": [
+              {
+                "name": "buy_below_market",
+                "type": {
+                  "defined": "BuyBelowMarket"
+                }
+              }
+            ]
+          },
+          {
+            "name": "SellAboveMarketProduct",
+            "fields": [
+              {
+                "name": "sell_above_market",
+                "type": {
+                  "defined": "SellAboveMarket"
+                }
+              }
+            ]
+          },
+          {
+            "name": "PutWorstOfKnockInProduct",
+            "fields": [
+              {
+                "name": "put_worst_of_knock_in",
+                "type": {
+                  "defined": "PutWorstOfKnockIn"
+                }
+              }
+            ]
+          },
+          {
+            "name": "PutSellingProduct",
+            "fields": [
+              {
+                "name": "put_selling",
+                "type": {
+                  "defined": "PutSelling"
+                }
+              }
+            ]
+          },
+          {
+            "name": "CallOverrideProduct",
+            "fields": [
+              {
+                "name": "call_override",
+                "type": {
+                  "defined": "CallOverride"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidAmountTransferred",
+      "msg": "The transferred amount is invalid"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidAmountMinted",
+      "msg": "The minted amount is invalid"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidAmountBurned",
+      "msg": "The burned amount is invalid"
+    },
+    {
+      "code": 6003,
+      "name": "ImmutableAccount",
+      "msg": "The account is not mutable"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidOrderDirection",
+      "msg": "The order direction does not match the holding order direction"
+    },
+    {
+      "code": 6005,
+      "name": "InsufficientAmount",
+      "msg": "The amount on the TokenAccount is insufficient"
+    },
+    {
+      "code": 6006,
+      "name": "InvalidMint",
+      "msg": "The mint of the account does not match with the holding mint"
+    },
+    {
+      "code": 6007,
+      "name": "OutdatedTimestamp",
+      "msg": "The timestamp is outdated"
+    },
+    {
+      "code": 6008,
+      "name": "ForbiddenBid",
+      "msg": "The bid is forbidden because the order possible direction is buy and sell"
+    },
+    {
+      "code": 6009,
+      "name": "OperationFailed",
+      "msg": "There was an error in the calculation made"
+    },
+    {
+      "code": 6010,
+      "name": "InvalidCounter",
+      "msg": "The number of the counter is invalid"
+    },
+    {
+      "code": 6011,
+      "name": "InvalidAccount",
+      "msg": "The account put in the instruction is invalid"
+    },
+    {
+      "code": 6012,
+      "name": "NonEmptyAccount",
+      "msg": "The account is not empty"
+    },
+    {
+      "code": 6013,
+      "name": "ProductAddressMismatch",
+      "msg": "The address of product mismatch"
+    },
+    {
+      "code": 6014,
+      "name": "InvalidProductEconomics",
+      "msg": "The product economics is invalid"
+    },
+    {
+      "code": 6015,
+      "name": "IncorrectUnderlyingCount",
+      "msg": "The number of underlying is incorrect"
+    },
+    {
+      "code": 6016,
+      "name": "ExpirySpotDoesNotExist",
+      "msg": "The spot level at product expiry is not set"
+    },
+    {
+      "code": 6017,
+      "name": "StrikeDoesNotExist",
+      "msg": "The strike is not set"
+    },
+    {
+      "code": 6018,
+      "name": "BidderDepositAmountDoesNotExist",
+      "msg": "The bidder deposit amount is not set"
+    },
+    {
+      "code": 6019,
+      "name": "DepositBuyMintMismatch",
+      "msg": "The mint of buying deposit mismatch"
+    },
+    {
+      "code": 6020,
+      "name": "DepositSellMintMismatch",
+      "msg": "The mint of selling deposit mismatch"
+    },
+    {
+      "code": 6021,
+      "name": "PlaceOrderPeriodNotEnded",
+      "msg": "The place order period is not ended"
+    },
+    {
+      "code": 6022,
+      "name": "OracleAddressMismatch",
+      "msg": "The oracle address mismatch"
+    },
+    {
+      "code": 6023,
+      "name": "InvalidOracle",
+      "msg": "The oracle account is invalid"
+    },
+    {
+      "code": 6024,
+      "name": "UnderlyingAccountCountMismatch",
+      "msg": "The length of underlying and oracle accounts mismatch"
+    },
+    {
+      "code": 6025,
+      "name": "ProductAlreadyStarted",
+      "msg": "The product is already started"
+    },
+    {
+      "code": 6026,
+      "name": "ProductNotStarted",
+      "msg": "The product is not started"
+    },
+    {
+      "code": 6027,
+      "name": "IncorrectUnderlying",
+      "msg": "The underlying address is incorrect"
+    },
+    {
+      "code": 6028,
+      "name": "InvalidBidAmount",
+      "msg": "The bidding amount is invalid"
+    },
+    {
+      "code": 6029,
+      "name": "ProductDurationNotEnded",
+      "msg": "The product duration is not ended"
+    },
+    {
+      "code": 6030,
+      "name": "ProductAlreadyExpired",
+      "msg": "The product is already expired"
+    },
+    {
+      "code": 6031,
+      "name": "ProductNotExpired",
+      "msg": "The product is not expired"
+    },
+    {
+      "code": 6032,
+      "name": "PayoffNotSet",
+      "msg": "The product payoff is not set"
+    },
+    {
+      "code": 6033,
+      "name": "BidNotAccepted",
+      "msg": "The bid is not accepted yet"
+    },
+    {
+      "code": 6034,
+      "name": "InvalidMathOperation",
+      "msg": "The math operation is invalid"
+    },
+    {
+      "code": 6035,
+      "name": "NonZeroRemainingAmount",
+      "msg": "The remaining orders amount is not zero"
+    },
+    {
+      "code": 6036,
+      "name": "ZeroRemainingAmount",
+      "msg": "The remaining orders amount is zero"
+    },
+    {
+      "code": 6037,
+      "name": "FailedGetBump",
+      "msg": "The PDA bumps get function failed"
+    },
+    {
+      "code": 6038,
+      "name": "ExceededMaxDepositAmount",
+      "msg": "The maximum deposit amount is exceeded"
+    },
+    {
+      "code": 6039,
+      "name": "InvalidOrderAmount",
+      "msg": "The order amount is invalid"
+    },
+    {
+      "code": 6040,
+      "name": "UnderlyingOwnerMismatch",
+      "msg": "The owner of underlying account mismatch"
+    },
+    {
+      "code": 6041,
+      "name": "InvalidAdmin",
+      "msg": "The admin key is invalid"
+    },
+    {
+      "code": 6042,
+      "name": "InvalidManagementAcc",
+      "msg": "The managemnet account key is invalid"
+    },
+    {
+      "code": 6043,
+      "name": "ExceededConfidenceInterval",
+      "msg": "The oracle confidence interval is exceeded"
+    },
+    {
+      "code": 6044,
+      "name": "HoldingOwnerMismatch",
+      "msg": "The owner of the holding account is invalid"
+    },
+    {
+      "code": 6045,
+      "name": "InvalidOwner",
+      "msg": "The account owner is invalid"
+    },
+    {
+      "code": 6046,
+      "name": "InsufficientSolMainAccount",
+      "msg": "Insufficient SOL in main account"
+    },
+    {
+      "code": 6047,
+      "name": "InvalidConvertAmount",
+      "msg": "The convert amount is invalid"
+    },
+    {
+      "code": 6048,
+      "name": "InvalidConvertPositionArgs",
+      "msg": "The convert position args is invalid"
+    },
+    {
+      "code": 6049,
+      "name": "InvalidConvertSecondaryDirection",
+      "msg": "The convert secondary direction is invalid"
+    },
+    {
+      "code": 6050,
+      "name": "StrikeZero",
+      "msg": "Strike is Zero"
+    }
+  ]
+}
